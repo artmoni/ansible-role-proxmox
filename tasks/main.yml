@@ -112,7 +112,6 @@
 - name: Run apt-get dist-upgrade on repository changes
   apt:
     update_cache: yes
-    cache_valid_time: 3600
     upgrade: dist
   when: _pve_repo is changed or _pve_ceph_repo is changed
   retries: 2
@@ -122,7 +121,6 @@
 - name: Perform system upgrades
   apt:
     update_cache: yes
-    cache_valid_time: 3600
     upgrade: dist
   when: "pve_run_system_upgrades | bool"
   retries: 2
